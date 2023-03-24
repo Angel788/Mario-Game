@@ -1,0 +1,46 @@
+library ieee;
+use ieee.std_logic_1164;
+
+package escenario is 
+   type escenario  is (0 to 40) of std_logic_vector(0 to 7);
+end package;
+
+entity cargarMapa is port(
+   estacargado: in std_logic,
+	mapaCargado: out escenario );
+end entity;
+
+architecture cargarMapa of cargarMapa is
+   signal mapa: escenario;   
+   signal i: integer := 20;	
+begin
+   process(estacargado)
+	    if(estacargado='0') then
+		             escenario(0)="01010000";
+                    escenario(1)="01110100";
+                    escenario(2) ="00010000";
+                    escenario(3) ="00110000";
+                    escenario(4) ="00100000";
+                    escenario(5) ="00010000";
+                    escenario(6) ="00010000";
+                    escenario(7)="00010000";
+                    escenario(8) ="00110000";
+                    escenario(9) ="01110000";
+                    escenario(10) ="01010100";
+                    escenario(11) ="00110000";
+                    escenario(12) ="00110000";
+                    escenario(13) ="00010000";
+                    escenario(14) ="00110000";
+                    escenario(15) ="00110000";
+                    escenario(16) ="01110000";
+                    escenario(17) ="01100100";
+                    escenario(18) ="01000000";
+                    escenario(19) ="00010000";
+						  while i<40 loop 
+						      escenario(i)="00000000";
+								i:=i+1;
+						  end loop;
+						  estacargado='1';
+		 end if;
+	end process;
+end architecture;	

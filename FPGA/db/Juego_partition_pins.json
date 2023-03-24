@@ -1,0 +1,49 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "display[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display[0]",
+					"strict" : false
+				},
+				{
+					"name" : "salidaArduino[3]",
+					"strict" : false
+				},
+				{
+					"name" : "salidaArduino[2]",
+					"strict" : false
+				},
+				{
+					"name" : "salidaArduino[1]",
+					"strict" : false
+				},
+				{
+					"name" : "salidaArduino[0]",
+					"strict" : false
+				},
+				{
+					"name" : "multiplexorArduino[2]",
+					"strict" : false
+				},
+				{
+					"name" : "multiplexorArduino[1]",
+					"strict" : false
+				},
+				{
+					"name" : "multiplexorArduino[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

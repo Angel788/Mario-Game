@@ -57,3 +57,22 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_global_assignment -name VHDL_FILE Juego.vhd
 set_global_assignment -name VHDL_FILE desbordado.vhd
+set_global_assignment -name VHDL_FILE cargarMapa.vhd
+set_global_assignment -name VHDL_FILE cargarMapaArduino.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE escenario.vhd
+set_location_assignment PIN_135 -to multiplexorArduino[0]
+set_location_assignment PIN_133 -to multiplexorArduino[1]
+set_location_assignment PIN_132 -to multiplexorArduino[2]
+set_location_assignment PIN_143 -to salidaArduino[0]
+set_location_assignment PIN_142 -to salidaArduino[1]
+set_location_assignment PIN_141 -to salidaArduino[2]
+set_location_assignment PIN_138 -to salidaArduino[3]
+set_location_assignment PIN_137 -to salidaArduino[4]
+set_location_assignment PIN_136 -to salidaArduino[5]
+set_location_assignment PIN_49 -to display[0]
+set_location_assignment PIN_50 -to display[1]
+set_location_assignment PIN_51 -to display[2]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

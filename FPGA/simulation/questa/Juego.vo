@@ -1,0 +1,375 @@
+// Copyright (C) 2022  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition"
+
+// DATE "03/24/2023 07:38:06"
+
+// 
+// Device: Altera EP4CE6E22C6 Package TQFP144
+// 
+
+// 
+// This Verilog file should be used for Questa Intel FPGA (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module Juego (
+	multiplexorArduino,
+	display,
+	salidaArduino);
+input 	[0:2] multiplexorArduino;
+output 	[0:2] display;
+output 	[0:5] salidaArduino;
+
+// Design Ports Information
+// display[2]	=>  Location: PIN_51,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// display[1]	=>  Location: PIN_50,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// display[0]	=>  Location: PIN_49,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// salidaArduino[5]	=>  Location: PIN_136,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// salidaArduino[4]	=>  Location: PIN_137,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// salidaArduino[3]	=>  Location: PIN_138,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// salidaArduino[2]	=>  Location: PIN_141,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// salidaArduino[1]	=>  Location: PIN_142,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// salidaArduino[0]	=>  Location: PIN_143,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// multiplexorArduino[2]	=>  Location: PIN_132,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// multiplexorArduino[1]	=>  Location: PIN_133,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// multiplexorArduino[0]	=>  Location: PIN_135,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \display[2]~output_o ;
+wire \display[1]~output_o ;
+wire \display[0]~output_o ;
+wire \salidaArduino[5]~output_o ;
+wire \salidaArduino[4]~output_o ;
+wire \salidaArduino[3]~output_o ;
+wire \salidaArduino[2]~output_o ;
+wire \salidaArduino[1]~output_o ;
+wire \salidaArduino[0]~output_o ;
+wire \multiplexorArduino[2]~input_o ;
+wire \multiplexorArduino[1]~input_o ;
+wire \multiplexorArduino[0]~input_o ;
+wire \cMapaArduino|display[0]~0_combout ;
+wire \cMapaArduino|Equal0~0_combout ;
+wire \cMapaArduino|Equal0~1_combout ;
+wire \cMapaArduino|salidaMapa[1]~0_combout ;
+wire \cMapaArduino|salidaMapa[0]~1_combout ;
+
+
+hard_block auto_generated_inst(
+	.devpor(devpor),
+	.devclrn(devclrn),
+	.devoe(devoe));
+
+// Location: IOOBUF_X16_Y0_N23
+cycloneive_io_obuf \display[2]~output (
+	.i(\multiplexorArduino[2]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\display[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \display[2]~output .bus_hold = "false";
+defparam \display[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X13_Y0_N2
+cycloneive_io_obuf \display[1]~output (
+	.i(\multiplexorArduino[1]~input_o ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\display[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \display[1]~output .bus_hold = "false";
+defparam \display[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X13_Y0_N16
+cycloneive_io_obuf \display[0]~output (
+	.i(!\cMapaArduino|display[0]~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\display[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \display[0]~output .bus_hold = "false";
+defparam \display[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X9_Y24_N9
+cycloneive_io_obuf \salidaArduino[5]~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\salidaArduino[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \salidaArduino[5]~output .bus_hold = "false";
+defparam \salidaArduino[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X7_Y24_N2
+cycloneive_io_obuf \salidaArduino[4]~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\salidaArduino[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \salidaArduino[4]~output .bus_hold = "false";
+defparam \salidaArduino[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X7_Y24_N9
+cycloneive_io_obuf \salidaArduino[3]~output (
+	.i(\cMapaArduino|Equal0~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\salidaArduino[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \salidaArduino[3]~output .bus_hold = "false";
+defparam \salidaArduino[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X5_Y24_N9
+cycloneive_io_obuf \salidaArduino[2]~output (
+	.i(!\cMapaArduino|Equal0~1_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\salidaArduino[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \salidaArduino[2]~output .bus_hold = "false";
+defparam \salidaArduino[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X3_Y24_N23
+cycloneive_io_obuf \salidaArduino[1]~output (
+	.i(!\cMapaArduino|salidaMapa[1]~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\salidaArduino[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \salidaArduino[1]~output .bus_hold = "false";
+defparam \salidaArduino[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X1_Y24_N2
+cycloneive_io_obuf \salidaArduino[0]~output (
+	.i(!\cMapaArduino|salidaMapa[0]~1_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\salidaArduino[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \salidaArduino[0]~output .bus_hold = "false";
+defparam \salidaArduino[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X13_Y24_N15
+cycloneive_io_ibuf \multiplexorArduino[2]~input (
+	.i(multiplexorArduino[2]),
+	.ibar(gnd),
+	.o(\multiplexorArduino[2]~input_o ));
+// synopsys translate_off
+defparam \multiplexorArduino[2]~input .bus_hold = "false";
+defparam \multiplexorArduino[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X13_Y24_N22
+cycloneive_io_ibuf \multiplexorArduino[1]~input (
+	.i(multiplexorArduino[1]),
+	.ibar(gnd),
+	.o(\multiplexorArduino[1]~input_o ));
+// synopsys translate_off
+defparam \multiplexorArduino[1]~input .bus_hold = "false";
+defparam \multiplexorArduino[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X11_Y24_N15
+cycloneive_io_ibuf \multiplexorArduino[0]~input (
+	.i(multiplexorArduino[0]),
+	.ibar(gnd),
+	.o(\multiplexorArduino[0]~input_o ));
+// synopsys translate_off
+defparam \multiplexorArduino[0]~input .bus_hold = "false";
+defparam \multiplexorArduino[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y21_N8
+cycloneive_lcell_comb \cMapaArduino|display[0]~0 (
+// Equation(s):
+// \cMapaArduino|display[0]~0_combout  = (!\multiplexorArduino[0]~input_o  & ((\multiplexorArduino[1]~input_o ) # (!\multiplexorArduino[2]~input_o )))
+
+	.dataa(gnd),
+	.datab(\multiplexorArduino[0]~input_o ),
+	.datac(\multiplexorArduino[1]~input_o ),
+	.datad(\multiplexorArduino[2]~input_o ),
+	.cin(gnd),
+	.combout(\cMapaArduino|display[0]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \cMapaArduino|display[0]~0 .lut_mask = 16'h3033;
+defparam \cMapaArduino|display[0]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y21_N26
+cycloneive_lcell_comb \cMapaArduino|Equal0~0 (
+// Equation(s):
+// \cMapaArduino|Equal0~0_combout  = (!\multiplexorArduino[0]~input_o  & (!\multiplexorArduino[1]~input_o  & \multiplexorArduino[2]~input_o ))
+
+	.dataa(gnd),
+	.datab(\multiplexorArduino[0]~input_o ),
+	.datac(\multiplexorArduino[1]~input_o ),
+	.datad(\multiplexorArduino[2]~input_o ),
+	.cin(gnd),
+	.combout(\cMapaArduino|Equal0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \cMapaArduino|Equal0~0 .lut_mask = 16'h0300;
+defparam \cMapaArduino|Equal0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y21_N4
+cycloneive_lcell_comb \cMapaArduino|Equal0~1 (
+// Equation(s):
+// \cMapaArduino|Equal0~1_combout  = (\multiplexorArduino[0]~input_o  & (!\multiplexorArduino[1]~input_o  & !\multiplexorArduino[2]~input_o ))
+
+	.dataa(gnd),
+	.datab(\multiplexorArduino[0]~input_o ),
+	.datac(\multiplexorArduino[1]~input_o ),
+	.datad(\multiplexorArduino[2]~input_o ),
+	.cin(gnd),
+	.combout(\cMapaArduino|Equal0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \cMapaArduino|Equal0~1 .lut_mask = 16'h000C;
+defparam \cMapaArduino|Equal0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y21_N30
+cycloneive_lcell_comb \cMapaArduino|salidaMapa[1]~0 (
+// Equation(s):
+// \cMapaArduino|salidaMapa[1]~0_combout  = (\multiplexorArduino[0]~input_o  & ((\multiplexorArduino[1]~input_o ) # (\multiplexorArduino[2]~input_o ))) # (!\multiplexorArduino[0]~input_o  & ((!\multiplexorArduino[2]~input_o )))
+
+	.dataa(gnd),
+	.datab(\multiplexorArduino[0]~input_o ),
+	.datac(\multiplexorArduino[1]~input_o ),
+	.datad(\multiplexorArduino[2]~input_o ),
+	.cin(gnd),
+	.combout(\cMapaArduino|salidaMapa[1]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \cMapaArduino|salidaMapa[1]~0 .lut_mask = 16'hCCF3;
+defparam \cMapaArduino|salidaMapa[1]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X6_Y21_N24
+cycloneive_lcell_comb \cMapaArduino|salidaMapa[0]~1 (
+// Equation(s):
+// \cMapaArduino|salidaMapa[0]~1_combout  = (\multiplexorArduino[0]~input_o ) # (\multiplexorArduino[1]~input_o )
+
+	.dataa(gnd),
+	.datab(\multiplexorArduino[0]~input_o ),
+	.datac(\multiplexorArduino[1]~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\cMapaArduino|salidaMapa[0]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \cMapaArduino|salidaMapa[0]~1 .lut_mask = 16'hFCFC;
+defparam \cMapaArduino|salidaMapa[0]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+assign display[2] = \display[2]~output_o ;
+
+assign display[1] = \display[1]~output_o ;
+
+assign display[0] = \display[0]~output_o ;
+
+assign salidaArduino[5] = \salidaArduino[5]~output_o ;
+
+assign salidaArduino[4] = \salidaArduino[4]~output_o ;
+
+assign salidaArduino[3] = \salidaArduino[3]~output_o ;
+
+assign salidaArduino[2] = \salidaArduino[2]~output_o ;
+
+assign salidaArduino[1] = \salidaArduino[1]~output_o ;
+
+assign salidaArduino[0] = \salidaArduino[0]~output_o ;
+
+endmodule
+
+module hard_block (
+
+	devpor,
+	devclrn,
+	devoe);
+
+// Design Ports Information
+// ~ALTERA_ASDO_DATA1~	=>  Location: PIN_6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_FLASH_nCE_nCSO~	=>  Location: PIN_8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DCLK~	=>  Location: PIN_12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DATA0~	=>  Location: PIN_13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_nCEO~	=>  Location: PIN_101,	 I/O Standard: 2.5 V,	 Current Strength: 8mA
+
+input 	devpor;
+input 	devclrn;
+input 	devoe;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+wire \~ALTERA_ASDO_DATA1~~padout ;
+wire \~ALTERA_FLASH_nCE_nCSO~~padout ;
+wire \~ALTERA_DATA0~~padout ;
+wire \~ALTERA_ASDO_DATA1~~ibuf_o ;
+wire \~ALTERA_FLASH_nCE_nCSO~~ibuf_o ;
+wire \~ALTERA_DATA0~~ibuf_o ;
+
+
+endmodule

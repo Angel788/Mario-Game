@@ -1,0 +1,18 @@
+library ieee.std_logic;
+use ieee.std_logic_1164.all;
+
+package escenario is 
+   type escenario  is (0 to 40) of std_logic_vector(0 to 6);
+end package;
+
+entity cargarMapaArduino is port(
+       c: in integer,
+       key: in std_logic_vector(0 to 2),
+		 mapa: in s
+		 salidaMapa: out std_logic_vector(0 to 6), 
+);
+
+architecture cargarMapaArduino of cargarMapaArduino is
+begin
+
+end architecture;
