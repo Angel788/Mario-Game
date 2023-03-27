@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Juego
-Fri Mar 24 07:37:57 2023
+Sun Mar 26 18:56:43 2023
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -13,13 +13,17 @@ Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Port Connectivity Checks: "cargarMapaArduino:cMapaArduino"
- 11. Port Connectivity Checks: "cargarMapa:cMapa"
- 12. Post-Synthesis Netlist Statistics for Top Partition
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Port Connectivity Checks: "desbordado:dddesbordado"
+ 12. Port Connectivity Checks: "caer:ccaer"
+ 13. Port Connectivity Checks: "debouncer:debounce2"
+ 14. Port Connectivity Checks: "debouncer:debounce1"
+ 15. Port Connectivity Checks: "cargarMapa:cMapa"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -46,16 +50,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Mar 24 07:37:57 2023          ;
+; Analysis & Synthesis Status        ; Successful - Sun Mar 26 18:56:43 2023          ;
 ; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                      ; Juego                                          ;
 ; Top-level Entity Name              ; Juego                                          ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 5                                              ;
-;     Total combinational functions  ; 5                                              ;
-;     Dedicated logic registers      ; 0                                              ;
-; Total registers                    ; 0                                              ;
-; Total pins                         ; 12                                             ;
+; Total logic elements               ; 277                                            ;
+;     Total combinational functions  ; 277                                            ;
+;     Dedicated logic registers      ; 88                                             ;
+; Total registers                    ; 88                                             ;
+; Total pins                         ; 17                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -158,56 +162,64 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                       ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
-; Juego.vhd                        ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/Juego.vhd             ;         ;
-; desbordado.vhd                   ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/desbordado.vhd        ;         ;
-; cargarMapa.vhd                   ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/cargarMapa.vhd        ;         ;
-; cargarMapaArduino.vhd            ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd ;         ;
-; escenario.vhd                    ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/escenario.vhd         ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                           ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                    ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------+---------+
+; Juego.vhd                        ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/Juego.vhd                 ;         ;
+; desbordado.vhd                   ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/desbordado.vhd            ;         ;
+; cargarMapa.vhd                   ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/cargarMapa.vhd            ;         ;
+; cargarMapaArduino.vhd            ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd     ;         ;
+; escenario.vhd                    ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/escenario.vhd             ;         ;
+; mandarPosicionArduino.vhd        ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/mandarPosicionArduino.vhd ;         ;
+; moverse.vhd                      ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/moverse.vhd               ;         ;
+; desbordadoR.vhd                  ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/desbordadoR.vhd           ;         ;
+; verificadorVida.vhd              ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/verificadorVida.vhd       ;         ;
+; caer.vhd                         ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/caer.vhd                  ;         ;
+; debouncer.vhd                    ; yes             ; User VHDL File  ; D:/DSD2020/Mario/FPGA/debouncer.vhd             ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                               ;
-+---------------------------------------------+-----------------------------+
-; Resource                                    ; Usage                       ;
-+---------------------------------------------+-----------------------------+
-; Estimated Total logic elements              ; 5                           ;
-;                                             ;                             ;
-; Total combinational functions               ; 5                           ;
-; Logic element usage by number of LUT inputs ;                             ;
-;     -- 4 input functions                    ; 0                           ;
-;     -- 3 input functions                    ; 4                           ;
-;     -- <=2 input functions                  ; 1                           ;
-;                                             ;                             ;
-; Logic elements by mode                      ;                             ;
-;     -- normal mode                          ; 5                           ;
-;     -- arithmetic mode                      ; 0                           ;
-;                                             ;                             ;
-; Total registers                             ; 0                           ;
-;     -- Dedicated logic registers            ; 0                           ;
-;     -- I/O registers                        ; 0                           ;
-;                                             ;                             ;
-; I/O pins                                    ; 12                          ;
-;                                             ;                             ;
-; Embedded Multiplier 9-bit elements          ; 0                           ;
-;                                             ;                             ;
-; Maximum fan-out node                        ; multiplexorArduino[1]~input ;
-; Maximum fan-out                             ; 6                           ;
-; Total fan-out                               ; 33                          ;
-; Average fan-out                             ; 1.14                        ;
-+---------------------------------------------+-----------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 277       ;
+;                                             ;           ;
+; Total combinational functions               ; 277       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 145       ;
+;     -- 3 input functions                    ; 36        ;
+;     -- <=2 input functions                  ; 96        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 198       ;
+;     -- arithmetic mode                      ; 79        ;
+;                                             ;           ;
+; Total registers                             ; 88        ;
+;     -- Dedicated logic registers            ; 88        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 17        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 88        ;
+; Total fan-out                               ; 1154      ;
+; Average fan-out                             ; 2.89      ;
++---------------------------------------------+-----------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -215,10 +227,31 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node          ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                   ; Entity Name       ; Library Name ;
 +-------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+-------------------+--------------+
-; |Juego                              ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |Juego                                ; Juego             ; work         ;
-;    |cargarMapaArduino:cMapaArduino| ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Juego|cargarMapaArduino:cMapaArduino ; cargarMapaArduino ; work         ;
+; |Juego                              ; 277 (59)            ; 88 (34)                   ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |Juego                                ; Juego             ; work         ;
+;    |caer:ccaer|                     ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Juego|caer:ccaer                     ; caer              ; work         ;
+;    |cargarMapaArduino:cMapaArduino| ; 77 (77)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Juego|cargarMapaArduino:cMapaArduino ; cargarMapaArduino ; work         ;
+;    |debouncer:debounce1|            ; 64 (64)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Juego|debouncer:debounce1            ; debouncer         ; work         ;
+;    |debouncer:debounce2|            ; 64 (64)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Juego|debouncer:debounce2            ; debouncer         ; work         ;
+;    |desbordado:dddesbordado|        ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Juego|desbordado:dddesbordado        ; desbordado        ; work         ;
 +-------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                    ;
++----------------------------------------------------+------------------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal                      ; Free of Timing Hazards ;
++----------------------------------------------------+------------------------------------------+------------------------+
+; cargarMapaArduino:cMapaArduino|salidaMapa[3]       ; cargarMapaArduino:cMapaArduino|LessThan0 ; yes                    ;
+; cargarMapaArduino:cMapaArduino|salidaMapa[2]       ; cargarMapaArduino:cMapaArduino|LessThan0 ; yes                    ;
+; cargarMapaArduino:cMapaArduino|salidaMapa[1]       ; cargarMapaArduino:cMapaArduino|LessThan0 ; yes                    ;
+; cargarMapaArduino:cMapaArduino|salidaMapa[0]       ; cargarMapaArduino:cMapaArduino|LessThan0 ; yes                    ;
+; caer:ccaer|rn[0]                                   ; posicionR[2]                             ; yes                    ;
+; caer:ccaer|rn[1]                                   ; posicionR[2]                             ; yes                    ;
+; caer:ccaer|rn[2]                                   ; posicionR[2]                             ; yes                    ;
+; Number of user-specified and inferred latches = 7  ;                                          ;                        ;
++----------------------------------------------------+------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -226,32 +259,65 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 88    ;
+; Number of registers using Synchronous Clear  ; 26    ;
+; Number of registers using Synchronous Load   ; 5     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 43    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
-; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |Juego|cargarMapaArduino:cMapaArduino|display[2] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |Juego|debouncer:debounce1|counter[6]               ;
+; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |Juego|debouncer:debounce2|counter[3]               ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Juego|cc[0]                                        ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |Juego|posicionR[2]                                 ;
+; 56:1               ; 4 bits    ; 148 LEs       ; 68 LEs               ; 80 LEs                 ; No         ; |Juego|cargarMapaArduino:cMapaArduino|salidaMapa[1] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
 
 
-+------------------------------------------------------------+
-; Port Connectivity Checks: "cargarMapaArduino:cMapaArduino" ;
-+------+-------+----------+----------------------------------+
-; Port ; Type  ; Severity ; Details                          ;
-+------+-------+----------+----------------------------------+
-; c    ; Input ; Info     ; Stuck at GND                     ;
-+------+-------+----------+----------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "desbordado:dddesbordado"                                                                            ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; posicion[31..5]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; nuevaposicion[31..5] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "caer:ccaer"                                                                              ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; rn[31..3] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; estavivo  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "debouncer:debounce2" ;
++------+-------+----------+-----------------------+
+; Port ; Type  ; Severity ; Details               ;
++------+-------+----------+-----------------------+
+; rst  ; Input ; Info     ; Stuck at GND          ;
++------+-------+----------+-----------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "debouncer:debounce1" ;
++------+-------+----------+-----------------------+
+; Port ; Type  ; Severity ; Details               ;
++------+-------+----------+-----------------------+
+; rst  ; Input ; Info     ; Stuck at GND          ;
++------+-------+----------+-----------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------+
@@ -269,16 +335,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 12                          ;
-; cycloneiii_lcell_comb ; 10                          ;
-;     normal            ; 10                          ;
+; boundary_port         ; 17                          ;
+; cycloneiii_ff         ; 88                          ;
+;     ENA               ; 38                          ;
+;     ENA SLD           ; 5                           ;
+;     SCLR              ; 26                          ;
+;     plain             ; 19                          ;
+; cycloneiii_lcell_comb ; 278                         ;
+;     arith             ; 79                          ;
+;         2 data inputs ; 79                          ;
+;     normal            ; 199                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 4                           ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 4                           ;
+;         2 data inputs ; 13                          ;
+;         3 data inputs ; 36                          ;
+;         4 data inputs ; 145                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.77                        ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 4.66                        ;
 +-----------------------+-----------------------------+
 
 
@@ -287,7 +361,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -297,57 +371,134 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Fri Mar 24 07:37:47 2023
+    Info: Processing started: Sun Mar 26 18:56:32 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Juego -c Juego
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file juego.vhd
-    Info (12022): Found design unit 1: Juego-Juego File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 14
+    Info (12022): Found design unit 1: Juego-Juego File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 17
     Info (12023): Found entity 1: Juego File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file desbordado.vhd
-    Info (12022): Found design unit 1: desbordado-desbordado File: D:/DSD2020/Mario/FPGA/desbordado.vhd Line: 10
+    Info (12022): Found design unit 1: desbordado-desbordado File: D:/DSD2020/Mario/FPGA/desbordado.vhd Line: 9
     Info (12023): Found entity 1: desbordado File: D:/DSD2020/Mario/FPGA/desbordado.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file cargarmapa.vhd
     Info (12022): Found design unit 1: cargarMapa-cargarMapa File: D:/DSD2020/Mario/FPGA/cargarMapa.vhd Line: 19
     Info (12023): Found entity 1: cargarMapa File: D:/DSD2020/Mario/FPGA/cargarMapa.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file cargarmapaarduino.vhd
-    Info (12022): Found design unit 1: cargarMapaArduino-cargarMapaArduino File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 16
+    Info (12022): Found design unit 1: cargarMapaArduino-cargarMapaArduino File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 15
     Info (12023): Found entity 1: cargarMapaArduino File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 8
 Info (12021): Found 1 design units, including 0 entities, in source file escenario.vhd
     Info (12022): Found design unit 1: mapq File: D:/DSD2020/Mario/FPGA/escenario.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mandarposicionarduino.vhd
+    Info (12022): Found design unit 1: mandarPosicionArduino-mandarPosicionArduino File: D:/DSD2020/Mario/FPGA/mandarPosicionArduino.vhd Line: 10
+    Info (12023): Found entity 1: mandarPosicionArduino File: D:/DSD2020/Mario/FPGA/mandarPosicionArduino.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file moverse.vhd
+    Info (12022): Found design unit 1: moverse-moverse File: D:/DSD2020/Mario/FPGA/moverse.vhd Line: 15
+    Info (12023): Found entity 1: moverse File: D:/DSD2020/Mario/FPGA/moverse.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file desbordador.vhd
+    Info (12022): Found design unit 1: desbordadoR-desbordadoR File: D:/DSD2020/Mario/FPGA/desbordadoR.vhd Line: 9
+    Info (12023): Found entity 1: desbordadoR File: D:/DSD2020/Mario/FPGA/desbordadoR.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file verificadorvida.vhd
+    Info (12022): Found design unit 1: verificadorVida-verificadorVida File: D:/DSD2020/Mario/FPGA/verificadorVida.vhd Line: 12
+    Info (12023): Found entity 1: verificadorVida File: D:/DSD2020/Mario/FPGA/verificadorVida.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file caer.vhd
+    Info (12022): Found design unit 1: caer-caer File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 12
+    Info (12023): Found entity 1: caer File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file debouncer.vhd
+    Info (12022): Found design unit 1: debouncer-rtl File: D:/DSD2020/Mario/FPGA/debouncer.vhd Line: 14
+    Info (12023): Found entity 1: debouncer File: D:/DSD2020/Mario/FPGA/debouncer.vhd Line: 5
 Info (12127): Elaborating entity "Juego" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at Juego.vhd(15): used explicit default value for signal "cc" because signal was never assigned a value File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 15
-Warning (10541): VHDL Signal Declaration warning at Juego.vhd(17): used implicit default value for signal "consumirMemoria" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 17
-Warning (10036): Verilog HDL or VHDL warning at Juego.vhd(18): object "cargadoo" assigned a value but never read File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 18
-Warning (10036): Verilog HDL or VHDL warning at Juego.vhd(20): object "mapaTuberiass" assigned a value but never read File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 20
-Info (12128): Elaborating entity "cargarMapa" for hierarchy "cargarMapa:cMapa" File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 22
+Warning (10541): VHDL Signal Declaration warning at Juego.vhd(19): used implicit default value for signal "consumirMemoria" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 19
+Warning (10036): Verilog HDL or VHDL warning at Juego.vhd(20): object "cargadoo" assigned a value but never read File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 20
+Warning (10036): Verilog HDL or VHDL warning at Juego.vhd(22): object "mapaTuberiass" assigned a value but never read File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 22
+Warning (10036): Verilog HDL or VHDL warning at Juego.vhd(25): object "sigueVivo" assigned a value but never read File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 25
+Warning (10540): VHDL Signal Declaration warning at Juego.vhd(29): used explicit default value for signal "timeout_cycles" because signal was never assigned a value File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 29
+Info (12128): Elaborating entity "cargarMapa" for hierarchy "cargarMapa:cMapa" File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 32
 Warning (10541): VHDL Signal Declaration warning at cargarMapa.vhd(15): used implicit default value for signal "mapatuberias" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DSD2020/Mario/FPGA/cargarMapa.vhd Line: 15
 Warning (10541): VHDL Signal Declaration warning at cargarMapa.vhd(16): used implicit default value for signal "cargado" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DSD2020/Mario/FPGA/cargarMapa.vhd Line: 16
 Warning (10873): Using initial value X (don't care) for net "mapa[29..40]" at cargarMapa.vhd(20) File: D:/DSD2020/Mario/FPGA/cargarMapa.vhd Line: 20
-Info (12128): Elaborating entity "cargarMapaArduino" for hierarchy "cargarMapaArduino:cMapaArduino" File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 29
-Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(22): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 22
+Info (12128): Elaborating entity "cargarMapaArduino" for hierarchy "cargarMapaArduino:cMapaArduino" File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 39
+Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(21): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(23): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 23
 Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(25): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 25
-Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(28): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 28
+Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(27): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 27
+Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(29): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 29
 Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(31): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 31
-Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(34): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 34
-Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(37): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 37
-Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(40): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 40
-Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(43): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 43
-Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(47): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 47
+Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(33): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 33
+Warning (10492): VHDL Process Statement warning at cargarMapaArduino.vhd(35): signal "mapa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 35
+Warning (10631): VHDL Process Statement warning at cargarMapaArduino.vhd(18): inferring latch(es) for signal or variable "salidaMapa", which holds its previous value in one or more paths through the process File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 18
+Info (10041): Inferred latch for "salidaMapa[5]" at cargarMapaArduino.vhd(18) File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 18
+Info (10041): Inferred latch for "salidaMapa[4]" at cargarMapaArduino.vhd(18) File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 18
+Info (10041): Inferred latch for "salidaMapa[3]" at cargarMapaArduino.vhd(18) File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 18
+Info (10041): Inferred latch for "salidaMapa[2]" at cargarMapaArduino.vhd(18) File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 18
+Info (10041): Inferred latch for "salidaMapa[1]" at cargarMapaArduino.vhd(18) File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 18
+Info (10041): Inferred latch for "salidaMapa[0]" at cargarMapaArduino.vhd(18) File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 18
+Info (12128): Elaborating entity "mandarPosicionArduino" for hierarchy "mandarPosicionArduino:mPosicionArduino" File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 46
+Info (12128): Elaborating entity "debouncer" for hierarchy "debouncer:debounce1" File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 51
+Warning (10540): VHDL Signal Declaration warning at debouncer.vhd(17): used explicit default value for signal "timeout_cycles" because signal was never assigned a value File: D:/DSD2020/Mario/FPGA/debouncer.vhd Line: 17
+Info (12128): Elaborating entity "caer" for hierarchy "caer:ccaer" File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 65
+Warning (10541): VHDL Signal Declaration warning at caer.vhd(7): used implicit default value for signal "ds" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 7
+Warning (10631): VHDL Process Statement warning at caer.vhd(14): inferring latch(es) for signal or variable "rn", which holds its previous value in one or more paths through the process File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Warning (10631): VHDL Process Statement warning at caer.vhd(14): inferring latch(es) for signal or variable "estavivo", which holds its previous value in one or more paths through the process File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "estavivo" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[0]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[1]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[2]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[3]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[4]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[5]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[6]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[7]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[8]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[9]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[10]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[11]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[12]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[13]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[14]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[15]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[16]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[17]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[18]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[19]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[20]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[21]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[22]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[23]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[24]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[25]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[26]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[27]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[28]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[29]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[30]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (10041): Inferred latch for "rn[31]" at caer.vhd(14) File: D:/DSD2020/Mario/FPGA/caer.vhd Line: 14
+Info (12128): Elaborating entity "desbordado" for hierarchy "desbordado:dddesbordado" File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 73
+Warning (13012): Latch cargarMapaArduino:cMapaArduino|salidaMapa[3] has unsafe behavior File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cc[4] File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 80
+Warning (13012): Latch cargarMapaArduino:cMapaArduino|salidaMapa[2] has unsafe behavior File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cc[4] File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 80
+Warning (13012): Latch cargarMapaArduino:cMapaArduino|salidaMapa[1] has unsafe behavior File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cc[4] File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 80
+Warning (13012): Latch cargarMapaArduino:cMapaArduino|salidaMapa[0] has unsafe behavior File: D:/DSD2020/Mario/FPGA/cargarMapaArduino.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cc[4] File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 80
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "display[2]" is stuck at GND File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 10
+    Warning (13410): Pin "display[1]" is stuck at GND File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 10
+    Warning (13410): Pin "display[0]" is stuck at GND File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 10
     Warning (13410): Pin "salidaArduino[5]" is stuck at GND File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 11
     Warning (13410): Pin "salidaArduino[4]" is stuck at GND File: D:/DSD2020/Mario/FPGA/Juego.vhd Line: 11
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 17 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 5 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 4803 megabytes
-    Info: Processing ended: Fri Mar 24 07:37:57 2023
-    Info: Elapsed time: 00:00:10
+Info (21057): Implemented 294 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 11 output pins
+    Info (21061): Implemented 277 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 36 warnings
+    Info: Peak virtual memory: 4822 megabytes
+    Info: Processing ended: Sun Mar 26 18:56:43 2023
+    Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:25
 
 

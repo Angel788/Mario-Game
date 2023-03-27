@@ -9,6 +9,8 @@ int pinesPosicion[]={11,12};
 int pisoMapa[16][5];
 int enemigosMapa[16][5];
 byte columna[9];
+ byte salidasFpgaPosicion[2];
+int posicionRMario;
 
 byte nubes[]{
     B00000,
@@ -92,39 +94,39 @@ void multiplexor(int numero){
     digitalWrite(pinesFpgaMultiplexor[0],LOW);
     }
     if(numero==1){
-    digitalWrite(pinesFpgaMultiplexor[0],HIGH);
+    digitalWrite(pinesFpgaMultiplexor[2],HIGH);
     digitalWrite(pinesFpgaMultiplexor[1],LOW);
-    digitalWrite(pinesFpgaMultiplexor[2],LOW);
+    digitalWrite(pinesFpgaMultiplexor[0],LOW);
     }
    if(numero==2){
-    digitalWrite(pinesFpgaMultiplexor[0],LOW);
-    digitalWrite(pinesFpgaMultiplexor[1],HIGH);
     digitalWrite(pinesFpgaMultiplexor[2],LOW);
+    digitalWrite(pinesFpgaMultiplexor[1],HIGH);
+    digitalWrite(pinesFpgaMultiplexor[0],LOW);
     }
     if(numero==3){
-    digitalWrite(pinesFpgaMultiplexor[0],HIGH);
+    digitalWrite(pinesFpgaMultiplexor[2],HIGH);
     digitalWrite(pinesFpgaMultiplexor[1],HIGH);
-    digitalWrite(pinesFpgaMultiplexor[2],LOW);
+    digitalWrite(pinesFpgaMultiplexor[0],LOW);
     }
     if(numero==4){
-    digitalWrite(pinesFpgaMultiplexor[0],LOW);
+    digitalWrite(pinesFpgaMultiplexor[2],LOW);
     digitalWrite(pinesFpgaMultiplexor[1],LOW);
-    digitalWrite(pinesFpgaMultiplexor[2],HIGH);
+    digitalWrite(pinesFpgaMultiplexor[0],HIGH);
     }
     if(numero==5){
-    digitalWrite(pinesFpgaMultiplexor[0],HIGH);
-    digitalWrite(pinesFpgaMultiplexor[1],LOW);
     digitalWrite(pinesFpgaMultiplexor[2],HIGH);
+    digitalWrite(pinesFpgaMultiplexor[1],LOW);
+    digitalWrite(pinesFpgaMultiplexor[0],HIGH);
     }
     if(numero==6){
-    digitalWrite(pinesFpgaMultiplexor[0],LOW);
+    digitalWrite(pinesFpgaMultiplexor[2],LOW);
     digitalWrite(pinesFpgaMultiplexor[1],HIGH);
-    digitalWrite(pinesFpgaMultiplexor[2],HIGH);
-    }
-    if(numero==5){
     digitalWrite(pinesFpgaMultiplexor[0],HIGH);
-    digitalWrite(pinesFpgaMultiplexor[1],HIGH);
+    }
+    if(numero==7){
     digitalWrite(pinesFpgaMultiplexor[2],HIGH);
+    digitalWrite(pinesFpgaMultiplexor[1],HIGH);
+    digitalWrite(pinesFpgaMultiplexor[0],HIGH);
     }                 
     //digitalWrite(pinesFpgaMultiplexor[1],bitRead(numero,1));
     //digitalWrite(pinesFpgaMultiplexor[2],bitRead(numero,0));
@@ -153,13 +155,28 @@ void procesarDatosColumna(int c){
 }
 void imprimirEscenario(){
     for(int i=0;i<8;i++){
-      for(int j=0;j<3;j++){
-        lcd.setCursor(i,j+1);
-        if(pisoMapa[i][j]==1 && enemigosMapa[i][j]!=1) lcd.write(4);
-        else if(enemigosMapa[i][j]==1) lcd.write(1);
+      lcd.setCursor(i,0);
+      if(i%3==0) lcd.write(0);       
+      for(int j=1;j<=3;j++){
+        lcd.setCursor(i,j);
+        if(i==0 && posicionRMario==j){
+          lcd.write(2);
+        }
+        else{
+        if(pisoMapa[i][j-1]==1 && enemigosMapa[i][j-1]!=1) lcd.write(4);
+        else if(enemigosMapa[i][j-1]==1) lcd.write(1);
         else lcd.print(" ");
+        }
       }      
     }  
+}
+void posicionMario(){
+  salidasFpgaPosicion[0]=digitalRead(pinesPosicion[0]);
+  salidasFpgaPosicion[1]=digitalRead(pinesPosicion[1]);    
+  if(salidasFpgaPosicion[0]==0 && salidasFpgaPosicion[1]==0)posicionRMario=3;
+  if(salidasFpgaPosicion[0]==1 && salidasFpgaPosicion[1]==0)posicionRMario=2;  
+  if(salidasFpgaPosicion[0]==0 && salidasFpgaPosicion[1]==1)posicionRMario=1;
+  if(salidasFpgaPosicion[0]==1 && salidasFpgaPosicion[1]==1)posicionRMario=0; 
 }
 void loop() {
   /*lcd.setCursor(0,0);
@@ -175,16 +192,19 @@ void loop() {
   lcd.setCursor(0, 1);
   lcd.print("Mario");
   lcd.setCursor(0,0);*/
+  posicionMario();
   for(int i=0;i<8;i++){
     multiplexor(i);
     datosColumna();
-    procesarDatosColumna(i);
-    imprimirEscenario();
-    lcd.setCursor(13,0);
-    lcd.print("4CM3");
-    lcd.setCursor(13,1);
-    lcd.print("Mario");
-    delay(100);     
-    }
+    procesarDatosColumna(i);                             
+    delay(50);     
+  }
+  lcd.setCursor(13,0);
+  lcd.print("4CM3");
+  lcd.setCursor(13,1);
+  lcd.print("Mario");
+  lcd.setCursor(13, 2);
+  imprimirEscenario();
+  delay(500);     
   lcd.clear();  
 }

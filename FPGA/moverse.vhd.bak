@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity moverse is port(
+    c: in integer;
+	 r: in integer;
+	 pbtn: out std_vector(0 to 1)
+);
+end entity
+
+architecture moverse of moverse is 
+begin
+   process(c,r)
+	begin
+	    if(pbtn="10") then
+		    c<=c+1;
+		 elsif(pbtn="01" then
+	       c<=c+1;
+		    r<=r+1;	 
+	end process;
+end architecture;
